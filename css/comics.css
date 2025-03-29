@@ -1,0 +1,120 @@
+/* 漫画目录页面样式 */
+.comics-main {
+    padding-top: 80px;
+    background-color: #f8f9fa;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.page-description {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* 漫画卡片网格布局 */
+.comics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #F8F9FA;
+}
+
+.comic-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(134, 227, 206, 0.2);
+    transition: transform 0.3s;
+}
+
+.comic-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.comic-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.comic-card:hover img {
+    transform: scale(1.05);
+}
+
+.comic-info {
+    padding: 1.5rem;
+}
+
+.comic-info h3 {
+    font-size: 1.5rem;
+    color: #FA897B;
+    margin-bottom: 1rem;
+}
+
+.comic-description {
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.read-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #CCABDB;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(204, 171, 219, 0.3);
+}
+
+.read-button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .comics-main {
+        padding-top: 60px;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .page-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .comic-card img {
+        height: 200px;
+    }
+
+    .comic-info {
+        padding: 1rem;
+    }
+
+    .comic-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .read-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}

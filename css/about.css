@@ -1,0 +1,309 @@
+/* 关于页面样式 */
+.about-main {
+    padding-top: 80px;
+    background-color: #f8f9fa;
+}
+
+.about-hero {
+    text-align: center;
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #86E3CE, #FFDD94);
+    color: #fff;
+    margin-bottom: 3rem;
+}
+
+.about-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: fadeInUp 1s ease;
+}
+
+.about-hero .subtitle {
+    font-size: 1.5rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.3s forwards;
+}
+
+/* 内容区域样式 */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.about-section {
+    margin-bottom: 4rem;
+}
+
+.about-section h2 {
+    font-size: 2rem;
+    color: #FA897B;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.about-section p {
+    font-size: 1.2rem;
+    color: #6B7C93;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* 主题卡片网格 */
+.theme-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+    padding: 1rem;
+}
+
+.theme-card {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255,255,255,0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    background: linear-gradient(135deg, #ffffff, #f0f4f8);
+}
+
+.theme-card i {
+    font-size: 3rem;
+    background: linear-gradient(120deg, #CCABDB, #FA897B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.theme-card:hover i {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.theme-card h3 {
+    font-size: 1.5rem;
+    background: linear-gradient(120deg, #FA897B, #CCABDB);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.theme-card p {
+    font-size: 1.1rem;
+    color: #718096;
+    line-height: 1.6;
+    margin: 0 1rem;
+}
+
+/* 时间线样式 */
+.timeline {
+    position: relative;
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: #3498db;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.timeline-item:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.timeline-item:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.timeline-item:nth-child(4) {
+    animation-delay: 0.9s;
+}
+
+.timeline-content {
+    position: relative;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-left: 2rem;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    left: -1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1rem;
+    height: 1rem;
+    background-color: #3498db;
+    border-radius: 50%;
+}
+
+.timeline-content h3 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+    font-size: 1rem;
+    color: #7f8c8d;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .about-hero {
+        padding: 3rem 0;
+    }
+
+    .about-hero h1 {
+        font-size: 2rem;
+    }
+
+    .about-hero .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .about-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-section p {
+        font-size: 1rem;
+    }
+
+    .theme-card {
+        padding: 1.5rem;
+    }
+
+    .timeline::before {
+        left: 1rem;
+    }
+
+    .timeline-content {
+        margin-left: 3rem;
+    }
+
+    .timeline-content::before {
+        left: -2rem;
+    }
+}
+
+/* 团队成员样式 */
+.team-members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    padding: 2rem 0;
+}
+
+.member-card {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    animation: cardPop 0.5s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.member-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    background: linear-gradient(135deg, #ffffff, #f0f4f8);
+}
+
+.member-card h3 {
+    font-size: 1.8rem;
+    color: #FA897B;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(250, 137, 123, 0.1);
+}
+
+.member-role {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    margin: 1.2rem 0;
+    background: linear-gradient(120deg, #86E3CE, #FFDD94);
+    color: #4A4A4A;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 6px rgba(134, 227, 206, 0.2);
+}
+
+.member-role.leader {
+    background: linear-gradient(120deg, #FA897B, #FFDD94);
+    color: #ffffff;
+}
+
+.member-description {
+    color: #6B7C93;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-top: 1.2rem;
+    padding: 0 1rem;
+}
+
+@keyframes cardPop {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.member-card:nth-child(1) { animation-delay: 0.1s; }
+.member-card:nth-child(2) { animation-delay: 0.2s; }
+.member-card:nth-child(3) { animation-delay: 0.3s; }
+.member-card:nth-child(4) { animation-delay: 0.4s; }
+.member-card:nth-child(5) { animation-delay: 0.5s; }
+.member-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* 动画 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

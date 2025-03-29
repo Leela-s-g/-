@@ -1,0 +1,209 @@
+/* 留言板页面样式 */
+.message-board-main {
+    padding-top: 80px;
+    background: linear-gradient(135deg, #B5EEE3, #FFE7B3);
+    min-height: 100vh;
+}
+
+/* 移动端响应式设计 */
+@media (max-width: 768px) {
+    .message-board-main {
+        padding-top: 60px;
+    }
+
+    .message-form {
+        padding: 1rem;
+    }
+
+    .message-form input,
+    .message-form textarea {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+
+    .message-form button {
+        padding: 0.8rem 1.6rem;
+        font-size: 1rem;
+    }
+
+    .message-list {
+        padding: 1rem;
+    }
+
+    .message-item {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .message-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .message-content {
+        font-size: 1rem;
+    }
+
+    .message-meta {
+        font-size: 0.9rem;
+    }
+}
+
+/* 留言表单区域 */
+.message-form-section {
+    background: #fff;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 15px rgba(134, 227, 206, 0.2);
+    transition: all 0.4s ease;
+}
+
+.message-form-section h2 {
+    color: #4a4a4a;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-family: 'YeZiGongChangChunRiGongYuan', sans-serif;
+}
+
+.message-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e1e8ed;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #CCABDB;
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: #86E3CE;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(134, 227, 206, 0.3);
+}
+
+.submit-btn:hover {
+    background-color: #FFDD94;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 221, 148, 0.4);
+}
+
+/* 留言展示区域 */
+.messages-section {
+    background: #fff;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(134, 227, 206, 0.2);
+    transition: all 0.4s ease;
+}
+
+.messages-section h2 {
+    color: #4a4a4a;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-family: 'YeZiGongChangChunRiGongYuan', sans-serif;
+}
+
+.messages-container {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.message-card {
+    background: #FFFFFF;
+    border-radius: 15px;
+    padding: 1.5rem;
+    animation: fadeIn 0.5s ease-out;
+    box-shadow: 0 4px 15px rgba(134, 227, 206, 0.2);
+    transition: all 0.4s ease;
+}
+
+.message-card:hover {
+    transform: translateY(-10px);
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.message-nickname {
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.message-time {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.message-content {
+    color: #34495e;
+    line-height: 1.6;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .message-form-section,
+    .messages-section {
+        padding: 1.5rem;
+    }
+
+    .message-form-section h2,
+    .messages-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.8rem;
+    }
+
+    .submit-btn {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+}

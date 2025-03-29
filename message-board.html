@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言板 - SCTP</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/message-board.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-content">
+            <div class="logo">
+                <h1>云心暖语</h1>
+                <p class="tagline">温暖入心的治愈漫画</p>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="comics.html">漫画目录</a>
+                <a href="about.html">关于作品</a>
+                <a href="message-board.html" class="active">留言板</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="message-board-main">
+        <div class="container">
+            <section class="message-form-section">
+                <h2>留下你的想法</h2>
+                <form id="messageForm" class="message-form">
+                    <div class="form-group">
+                        <input type="text" id="nickname" name="nickname" placeholder="你的昵称" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="写下你想说的话..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">发送留言</button>
+                </form>
+            </section>
+
+            <section class="messages-section">
+                <h2>留言墙</h2>
+                <div id="messagesContainer" class="messages-container">
+                    <!-- 留言将通过JavaScript动态添加到这里 -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/message-board.js"></script>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>云心暖语</h3>
+                    <p>温暖入心的治愈漫画</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">首页</a>
+                    <a href="comics.html">漫画目录</a>
+                    <a href="about.html">关于作品</a>
+                    <a href="message-board.html">留言板</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 云心暖语. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
