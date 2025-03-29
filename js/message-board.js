@@ -1,23 +1,17 @@
-// 留言板功能实现
 document.addEventListener('DOMContentLoaded', function() {
     const messageForm = document.getElementById('messageForm');
     const messagesContainer = document.getElementById('messagesContainer');
-    const STORAGE_KEY = 'sctp_messages';
 
-    // 从localStorage加载留言
-    function loadMessages() {
-        const messages = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-        messages.forEach(message => displayMessage(message));
+    async function fetchMessages() {
+        try {
+            const response = await fetch('/.netlify/functions/submit-message');
+            const data = await response.json();
+            data.forEach(message => displayMessage(message));
+        } catch (error) {
+            console.error('Error fetching messages:', error);
+        }
     }
 
-    // 保存留言到localStorage
-    function saveMessage(message) {
-        const messages = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-        messages.unshift(message);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
-    }
-
-    // 创建并显示留言卡片
     function displayMessage(message) {
         const messageCard = document.createElement('div');
         messageCard.className = 'message-card';
@@ -26,32 +20,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 <span class="message-nickname">${escapeHtml(message.nickname)}</span>
                 <span class="message-time">${message.time}</span>
             </div>
-            <div class="message-content">${escapeHtml(message.content)}</div>
+            <div class="message-content">${escapeHtml(message.message)}</div>
         `;
         messagesContainer.insertBefore(messageCard, messagesContainer.firstChild);
     }
 
-    // HTML转义函数，防止XSS攻击
     function escapeHtml(text) {
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
     }
 
-    // 格式化时间
-    function formatDate(date) {
-        const options = {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit',
-            hour: '2-digit',
-            minute: '2-digit'
-        };
-        return new Date(date).toLocaleString('zh-CN', options);
-    }
-
-    // 处理表单提交
-    messageForm.addEventListener('submit', function(e) {
+    messageForm.addEventListener('submit', async function(e) {
         e.preventDefault();
 
         const nickname = document.getElementById('nickname').value.trim();
@@ -64,17 +44,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const message = {
             nickname,
-            content,
-            time: formatDate(new Date())
+            message: content,
+            time: new Date().toISOString()
         };
 
-        saveMessage(message);
-        displayMessage(message);
+        try {
+            const response = await fetch('/.netlify/functions/submit-message', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(message)
+            });
 
-        // 清空表单
-        messageForm.reset();
+            if (response.ok) {
+                displayMessage(message);
+                messageForm.reset();
+            } else {
+                alert('提交留言时发生错误，请稍后再试。');
+            }
+        } catch (error) {
+            console.error('Error submitting message:', error);
+        }
     });
 
-    // 页面加载时显示已有留言
-    loadMessages();
+    fetchMessages();
 });
